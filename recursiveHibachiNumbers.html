@@ -2,25 +2,41 @@
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
-        function hib(n, a, b, c){
-            if (n <= 1) {
-                return c;
+
+        /**
+         * hibRecurse
+         * @param {number} idx - the control index position
+         * @param {number} num1 - operand
+         * @param {number} num2 - operand
+         * @param {number} num3 - operand
+         * @returns {number} num3
+         */
+        function hibRecurse(idx, num1, num2, num3){
+            if (idx <= 1) {
+                return num3;
             }
             else {
-                return hib(n-1, a*b*c, a, b);
+                return hib(idx - 1, num1*num2*num3, num1, num2);
             }
         }
 
-        function hibachi(n){
-            return hib(n, 2, 2, 2);
+        /**
+         * hibachiSearch
+         * @param {number} idx - index position of the hibachi number we're searching for
+         * @returns {number} the hibachi number at idx position
+         */
+        function hibachiSearch(idx){
+            return hibRecurse(idx, 2, 2, 2);
         }
 
+        /**
+         * Take a number input from user and search for the nth hibachi number, then print result
+         */
         $(document).ready(function() {
             $('#btn').click(function() {
                 $('#result').empty();
                 var input = Number($('#theInput').val());
-                var hibachiResult = hibachi(input);
-                console.log('hibachi number at nth position: ' + hibachiResult);
+                var hibachiResult = hibachiSearch(input);
                 $('#result').text(hibachiResult);
             })
         });
