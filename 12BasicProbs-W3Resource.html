@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            //q1
+            //QUESTION 1
             (function (){
                 var todayDate = new Date();
                 var day = todayDate.getDay();
@@ -28,32 +28,47 @@
                 var time = todayDate.toLocaleTimeString('en-us', options);
                 $('#q1').html('Today is: ' + day + '<br>' + 'Current time is: ' + time);
             }());
-            //q2
+            //QUESTION 2
             (function (){
                 $('#q2').click(function(){
                     window.print();
                 })
             }());
-            //q3
-            //q4
-            //q5
-            //q6
-            //q7
-            //q8
-            //q9
-            //q10
+            //QUESTION 3
+            //QUESTION 4
             (function (){
-                $('#q10 #btn1').click(function(){
-                    $('#q10Result').empty();
-                    $('#q10Result').text($('#num1').val() * $('#num2').val());
-                });
-                $('#q10 #btn2').click(function(){
-                    $('#q10Result').empty();
-                    $('#q10Result').text($('#num1').val() / $('#num2').val());
+                $('#getArea').click(function() {
+                    var a = Number($('#side1').val());
+                    var b = Number($('#side2').val());
+                    var c = Number($('#side3').val());
+                    console.log(a, b, c);
+                    var halfPerimeter = (a + b + c) / 2;
+                    var area = Math.sqrt(halfPerimeter * ((halfPerimeter - a) * (halfPerimeter - b) * (halfPerimeter - c)));
+                    if (!isNaN(area) && area > 0) {
+                        $('#q4').text(area);
+                    } else {
+                        $('#q4').text('not a triangle');
+                    }
                 });
             }());
-            //q11
-            //q12
+            //QUESTION 5
+            //QUESTION 6
+            //QUESTION 7
+            //QUESTION 8
+            //QUESTION 9
+            //QUESTION 10
+            (function (){
+                $('#btn1').click(function(){
+                    $('#q10').empty();
+                    $('#q10').text($('#num1').val() * $('#num2').val());
+                });
+                $('#btn2').click(function(){
+                    $('#q10').empty();
+                    $('#q10').text($('#num1').val() / $('#num2').val());
+                });
+            }());
+            //QUESTION 11
+            //QUESTION 12
             (function (){
                 $('#q12').click(function(){
                     $('#q12').after('<p>' + document.URL + '</p>' + '<br>');
@@ -69,46 +84,59 @@
 <hr>
 
 <ol>
+    <!--QUESTION 1-->
     <li>Display the current day and time in the following format.<br>
         Sample Output : Today is : Friday.<br>
         Current time is : 4 : 50 : 22 PM</li>
     <p id="q1" class="ans"></p>
 
+    <!--QUESTION 2-->
     <li>Print the contents of the current window.</li>
     <button id="q2" class="ans">Print page</button><br><br>
 
+    <!--QUESTION 3-->
     <li>Get the current date.<br>
 Expected Output :<br>
 mm-dd-yyyy, mm/dd/yyyy or dd-mm-yyyy, dd/mm/yyyy</li>
     <p id="q3" class="ans"></p>
 
+    <!--QUESTION 4-->
     <li>Find the area of a triangle where lengths of the three of its sides are 5, 6, 7.</li>
+    <input type="number" id="side1" value="5">
+    <input type="number" id="side2" value="6">
+    <input type="number" id="side3" value="7">
+    <button id="getArea">Get Triangle Area</button>
     <p id="q4" class="ans"></p>
 
+    <!--QUESTION 5-->
     <li>Rotate the string 'w3resource' in right direction by periodically removing one letter from the end of the string and attaching it to the front.</li>
     <p id="q5" class="ans"></p>
 
+    <!--QUESTION 6-->
     <li>Determine whether a given year is a leap year in the Gregorian calendar.</li>
     <p id="q6" class="ans"></p>
 
+    <!--QUESTION 7-->
     <li>Find 1st January is being a Sunday between 2014 and 2050.</li>
     <p id="q7" class="ans"></p>
 
+    <!--QUESTION 8-->
     <li>Takes a random integer between 1 to 10, the user is then prompted to input a guess number. If the user input matches with guess number, the program will display a message "Good Work" otherwise display a message "Not matched".</li>
     <p id="q8" class="ans"></p>
 
+    <!--QUESTION 9-->
     <li>Calculate days left until next Christmas.</li>
     <p id="q9" class="ans"></p>
 
+    <!--QUESTION 10-->
     <li>Calculate multiplication and division of two numbers (input from user).</li>
-    <p id="q10" class="ans">
-        <input type="number" placeholder="num1" id="num1">
-        <input type="number" placeholder="num2" id="num2">
-        <button id="btn1">Multiply</button>
-        <button id="btn2">Divide</button>
-        <p id="q10Result"></p>
-    </p>
+    <input type="number" placeholder="num1" id="num1">
+    <input type="number" placeholder="num2" id="num2">
+    <button id="btn1">Multiply</button>
+    <button id="btn2">Divide</button>
+    <p id="q10" class="ans"></p>
 
+    <!--QUESTION 11-->
     <li>Convert temperatures to and from celsius, fahrenheit.<br>
 [ Formula : c/5 = (f-32)/9 [ where c = temperature in celsius and f = temperature in fahrenheit ]<br>
 Expected Output :<br>
@@ -116,6 +144,7 @@ Expected Output :<br>
 45°F is 7.222222222222222°C</li>
     <p id="q11" class="ans"></p>
 
+    <!--QUESTION 12-->
     <li>Get the website URL (loading page).</li>
     <button id="q12" class="ans">Get this URL</button>
 
