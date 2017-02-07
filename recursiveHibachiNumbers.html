@@ -1,0 +1,39 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        function hib(n, a, b, c){
+            if (n <= 1) {
+                return c;
+            }
+            else {
+                return hib(n-1, a*b*c, a, b);
+            }
+        }
+
+        function hibachi(n){
+            return hib(n, 2, 2, 2);
+        }
+
+        $(document).ready(function() {
+            $('#btn').click(function() {
+                $('#result').empty();
+                var input = Number($('#theInput').val());
+                var hibachiResult = hibachi(input);
+                console.log('hibachi number at nth position: ' + hibachiResult);
+                $('#result').text(hibachiResult);
+            })
+        });
+    </script>
+</head>
+<body>
+<h1>Optimized Recursive Hibachi Numbers</h1>
+<hr>
+<p>Hibachi numbers sequence is like the fibonacci sequence, but starts with 2, 2, 2, and each additional number is the product of the previous three. eg [2,2,2,8,32,...]</p>
+<p>Enter a number below to get the hibachi number at that position:</p>
+<br/><input type="number" min="1" size="10" id="theInput">
+<hr>
+<input type="button" value="HIBACHINIZE" id="btn" />
+<div id="result"></div>
+</body>
+</html>
