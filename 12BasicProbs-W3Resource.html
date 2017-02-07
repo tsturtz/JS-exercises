@@ -1,0 +1,125 @@
+<html>
+<head>
+    <style>
+        .ans {
+            color: green;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            //q1
+            (function (){
+                var todayDate = new Date();
+                var day = todayDate.getDay();
+                day = day === 0 ? 'Monday'
+                        : day === 1 ? 'Tuesday'
+                        : day === 2 ? 'Wednesday'
+                        : day === 3 ? 'Thursday'
+                        : day === 4 ? 'Friday'
+                        : day === 5 ? 'Saturday'
+                        : 'Sunday';
+                var options = {
+                    hour: '2-digit', minute: '2-digit', second: '2-digit'
+                };
+                var time = todayDate.toLocaleTimeString('en-us', options);
+                $('#q1').html('Today is: ' + day + '<br>' + 'Current time is: ' + time);
+            }());
+            //q2
+            (function (){
+                $('#q2').click(function(){
+                    window.print();
+                })
+            }());
+            //q3
+            //q4
+            //q5
+            //q6
+            //q7
+            //q8
+            //q9
+            //q10
+            (function (){
+                $('#q10 #btn1').click(function(){
+                    $('#q10Result').empty();
+                    $('#q10Result').text($('#num1').val() * $('#num2').val());
+                });
+                $('#q10 #btn2').click(function(){
+                    $('#q10Result').empty();
+                    $('#q10Result').text($('#num1').val() / $('#num2').val());
+                });
+            }());
+            //q11
+            //q12
+            (function (){
+                $('#q12').click(function(){
+                    $('#q12').after('<p>' + document.URL + '</p>' + '<br>');
+                })
+            }());
+        });
+    </script>
+</head>
+<body>
+
+<h1>12 Basic JS Problems from w3resource</h1>
+<em>http://www.w3resource.com/javascript-exercises/javascript-basic-exercises.php</em>
+<hr>
+
+<ol>
+    <li>Display the current day and time in the following format.<br>
+        Sample Output : Today is : Friday.<br>
+        Current time is : 4 : 50 : 22 PM</li>
+    <p id="q1" class="ans"></p>
+
+    <li>Print the contents of the current window.</li>
+    <button id="q2" class="ans">Print page</button><br><br>
+
+    <li>Get the current date.<br>
+Expected Output :<br>
+mm-dd-yyyy, mm/dd/yyyy or dd-mm-yyyy, dd/mm/yyyy</li>
+    <p id="q3" class="ans"></p>
+
+    <li>Find the area of a triangle where lengths of the three of its sides are 5, 6, 7.</li>
+    <p id="q4" class="ans"></p>
+
+    <li>Rotate the string 'w3resource' in right direction by periodically removing one letter from the end of the string and attaching it to the front.</li>
+    <p id="q5" class="ans"></p>
+
+    <li>Determine whether a given year is a leap year in the Gregorian calendar.</li>
+    <p id="q6" class="ans"></p>
+
+    <li>Find 1st January is being a Sunday between 2014 and 2050.</li>
+    <p id="q7" class="ans"></p>
+
+    <li>Takes a random integer between 1 to 10, the user is then prompted to input a guess number. If the user input matches with guess number, the program will display a message "Good Work" otherwise display a message "Not matched".</li>
+    <p id="q8" class="ans"></p>
+
+    <li>Calculate days left until next Christmas.</li>
+    <p id="q9" class="ans"></p>
+
+    <li>Calculate multiplication and division of two numbers (input from user).</li>
+    <p id="q10" class="ans">
+        <input type="number" placeholder="num1" id="num1">
+        <input type="number" placeholder="num2" id="num2">
+        <button id="btn1">Multiply</button>
+        <button id="btn2">Divide</button>
+        <p id="q10Result"></p>
+    </p>
+
+    <li>Convert temperatures to and from celsius, fahrenheit.<br>
+[ Formula : c/5 = (f-32)/9 [ where c = temperature in celsius and f = temperature in fahrenheit ]<br>
+Expected Output :<br>
+60°C is 140 °F<br>
+45°F is 7.222222222222222°C</li>
+    <p id="q11" class="ans"></p>
+
+    <li>Get the website URL (loading page).</li>
+    <button id="q12" class="ans">Get this URL</button>
+
+</ol>
+
+</body>
+</html>
