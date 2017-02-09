@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html>
 <head>
+    <title>JS Basic Exercises</title>
     <style>
         .ans {
             color: green;
@@ -11,7 +13,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script>
         $(document).ready(function() {
-            //QUESTION 1
+            //QUESTION_1
             (function (){
                 var todayDate = new Date();
                 var day = todayDate.getDay();
@@ -28,14 +30,14 @@
                 var time = todayDate.toLocaleTimeString('en-us', options);
                 $('#q1').html('Today is: ' + day + '<br>' + 'Current time is: ' + time);
             }());
-            //QUESTION 2
+            //QUESTION_2
             (function (){
                 $('#q2').click(function(){
                     window.print();
                 })
             }());
-            //QUESTION 3
-            //QUESTION 4
+            //QUESTION_3
+            //QUESTION_4
             (function (){
                 $('#getArea').click(function() {
                     var a = Number($('#side1').val());
@@ -51,12 +53,12 @@
                     }
                 });
             }());
-            //QUESTION 5
-            //QUESTION 6
-            //QUESTION 7
-            //QUESTION 8
-            //QUESTION 9
-            //QUESTION 10
+            //QUESTION_5
+            //QUESTION_6
+            //QUESTION_7
+            //QUESTION_8
+            //QUESTION_9
+            //QUESTION_10
             (function (){
                 $('#btn1').click(function(){
                     $('#q10').empty();
@@ -67,8 +69,8 @@
                     $('#q10').text($('#num1').val() / $('#num2').val());
                 });
             }());
-            //QUESTION 11
-            //QUESTION 12
+            //QUESTION_11
+            //QUESTION_12
             (function (){
                 $('#q12').click(function(){
                     $('#q12').after('<p>' + document.URL + '</p>' + '<br>');
