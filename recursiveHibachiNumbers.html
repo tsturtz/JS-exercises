@@ -18,7 +18,7 @@
                 return num3;
             }
             else {
-                return hib(idx - 1, num1*num2*num3, num1, num2);
+                return hibRecurse(idx - 1, num1*num2*num3, num1, num2);
             }
         }
 
@@ -40,7 +40,7 @@
                 var input = Number($('#theInput').val());
                 var hibachiResult = hibachiSearch(input);
                 $('#result').text(hibachiResult);
-            })
+            });
         });
     </script>
 </head>
