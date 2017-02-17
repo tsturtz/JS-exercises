@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Variance</title>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('input[type="button"]').click(function() {
+        var sum = 0, count = 0, variance = [], storeValues = [], result, varianceTotal;
+
+        $('input[type="text"]').each(function() {
+            var val = Number( $(this).val() );
+            if (val) {
+                sum += val;
+                count++;
+                storeValues.push(val);
+            }
+        });
+
+        result = (sum > 0) ? sum/count : 'no values found';
+        $('#result').html( result );
+
+        for (var i = 0; i < storeValues.length; i++) {
+            variance.push(Math.pow(storeValues[i] - result, 2));
+        }
+        varianceTotal = variance.reduce(getSum) / count;
+        function getSum(total, num) {
+            return total + num;
+        }
+        $('#variance').html( varianceTotal );
+    });
+});
+</script>
+</head>
+<body>
+Enter numbers to get the average and variance:
+<br/>1. <input type="text" size="10" />
+<br/>2. <input type="text" size="10" />
+<br/>3. <input type="text" size="10" />
+<br/>4. <input type="text" size="10" />
+<br/>5. <input type="text" size="10" />
+<br/>6. <input type="text" size="10" />
+<br/>7. <input type="text" size="10" />
+<br/>8. <input type="text" size="10" />
+<br/>9. <input type="text" size="10" />
+<br/>10. <input type="text" size="10" />
+<hr>
+<input type="button" value="Calc avg and variance" id="calc_button">
+<div id="result"></div>
+<div id="variance"></div>
+</body>
+</html>
