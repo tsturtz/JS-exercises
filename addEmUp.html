@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add em up!</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+    var arr = [];
+    function add(input) {
+        if (input <= 1000000) {
+            for (var i = 1; i <= input; i++) {
+                arr.push(i);
+            }
+            var result = arr.reduce(function(total, num) {return total + num;});
+            arr = [];
+            return result;
+        }
+        else {
+            return 'Number can\'t be larger than 1000000.';
+        }
+    }
+    $(document).ready(function() {
+        $('#btn').click(function() {
+            var val = parseInt($('#input').val());
+            if (val > 0) {
+                var sum = add(val);
+                $('#result').empty().text(sum);
+            } else {
+                $('#result').empty().text('Please enter a number greater than 0');
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+<h3>Add from 1 to...</h3>
+<p>Enter an positive integer. Result will be the sum of all numbers from 1 to your input.</p>
+<input type="number" min="1" max="1000000" id="input">
+<hr>
+<input type="button" value="submit" id="btn">
+<div id="result"></div>
+</body>
+</html>
