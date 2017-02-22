@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Fischer Yates Shuffle</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+    function randomizeList(arr) {
+        var len = arr.length;
+        var temp;
+        var randomIdx;
+        while(len) {
+            //random 'randomIdx' is between 0 and 'len' which is initially the length of the array, then decrement the value of the variable 'len'
+            randomIdx = Math.floor(Math.random() * len--);
+            //temp is initially equal to the last item in the array, and in each iteration one closer to 0
+            temp = arr[len];
+            arr[len] = arr[randomIdx];
+            arr[randomIdx] = temp;
+        }
+        return '[' + arr + ']';
+    }
+    $(document).ready(function() {
+        $('#btn').click(function() {
+            var inputArr = [];
+            var val = $('#input').val();
+            if (val.length > 0) {
+                inputArr = val.split(',');
+            }
+            var randomList = randomizeList(inputArr);
+            $('#result').empty().text(randomList);
+        });
+    });
+  </script>
+</head>
+<body>
+<h3>Fisher Yates Shuffle</h3>
+<p>Enter some values separated by commas for shuffling.</p>
+<input type="text" size="30" id="input">
+<hr>
+<input type="button" value="submit" id="btn">
+<p>Click to shuffle again and again</p>
+<div id="result"></div>
+</body>
+</html>
